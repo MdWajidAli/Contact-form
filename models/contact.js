@@ -14,5 +14,13 @@ const contactSchema = new Schema({
     message: {
         type: String,
         required:[true, "message is required"]
+    },
+    date: {
+        type: Date,
+        default: Date.now,
     }
 })
+ 
+const Contact = mongoose.models.Contact  || mongoose.model("Contact", contactSchema)
+
+export default Contact;
